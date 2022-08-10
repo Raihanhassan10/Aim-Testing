@@ -1,0 +1,339 @@
+:root {
+  --menu-bg-color: #cbcbc2;
+  --silde-btn-border: #808080;
+  --slide-btn-bg: #ddf2db;
+  --slide-btn-hoverbg: #f1fff1;
+  --alpha-green: rgba(33, 96, 47, 0.51);
+  --icon-hover-color: #344a39;
+  --icon-hover-bg: #709680;
+  --text-color: #616161;
+  --border-color: #709680;
+  --heading-color: #344a39;
+  --box-shadow-color: #b5b5ac;
+  --lightest-green: #86a58d;
+  --light-green: #9ab09a;
+  --dark-green: rgba(52, 74, 57, 0.86);
+  --box-shadow: 0px 0px 3px 5px var(--box-shadow-color);
+  --border-radius: 60px 5px;
+  --fade-green: rgba(57, 87, 64, 0.55);
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+body,
+html {
+  width: 100%;
+  font-size: 10px;
+  color: var(--text-color);
+  font-weight: normal;
+  font-family: sans-serif;
+  background-color: "black";
+}
+
+#ham-menu {
+  display: none;
+}
+label[for="ham-menu"] {
+  display: block;
+  position: fixed;
+  top: 24px;
+  left: 20px;
+  z-index: 999;
+  width: 60px;
+  height: 60px;
+  background-color: var(--home-bg-color);
+  border-radius: 15px;
+  border: 2px solid var(--border-color);
+}
+.ham-menu {
+  width: 50vw;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  visibility: hidden;
+  transform: translate(-110%);
+  z-index: 998;
+  background-color: var(--lightest-green);
+  transition: 1s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ham-menu > ul {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  padding: 20px;
+  height: 50%;
+}
+.ham-menu > ul > li {
+  font-size: 5rem;
+  white-space: nowrap;
+  letter-spacing: 0.15em;
+  cursor: pointer;
+  color: rgb(97, 97, 97);
+}
+#ham-menu:checked + label {
+  background-color: transparent;
+  border-color: var(--dark-green);
+}
+#ham-menu:checked ~ div.ham-menu {
+  transform: translate(0px);
+  visibility: visible;
+}
+.full-page-green {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--dark-green);
+  z-index: 997;
+  opacity: 0;
+  visibility: hidden;
+  display: none;
+  transition: 500ms;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+#ham-menu:checked ~ div.full-page-green {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+[for="ham-menu"] > div {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
+  align-items: center;
+}
+.menu-line {
+  display: block;
+  width: 17px;
+  height: 2px;
+  margin: 10px 0 5px;
+  border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  background-color: var(--border-color);
+  transition: 500ms;
+  transform-origin: right center;
+}
+[for="ham-menu"] > div > span:nth-child(4),
+[for="ham-menu"] > div > span:nth-child(5),
+[for="ham-menu"] > div > span:nth-child(6) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  transform-origin: left center;
+}
+#ham-menu:checked + label span {
+  background-color: var(--dark-green);
+}
+#ham-menu:checked + label span:nth-child(2),
+#ham-menu:checked + label span:nth-child(5) {
+  transform: scale(0);
+}
+#ham-menu:checked + label span:nth-child(1) {
+  transform: translateY(17px) rotate(45deg);
+}
+#ham-menu:checked + label span:nth-child(4) {
+  transform: translateY(17px) rotate(-45deg);
+}
+#ham-menu:checked + label span:nth-child(3) {
+  transform: translateY(-17px) rotate(-45deg);
+}
+#ham-menu:checked + label span:nth-child(6) {
+  transform: translateY(-17px) rotate(45deg);
+}
+p {
+  display: inline;
+  font-size: 1.8rem;
+  line-height: 1.5em;
+  word-spacing: 0.5em;
+  letter-spacing: 0.1em;
+  font-family: "OpenSansCondensed-Light";
+}
+
+.text {
+  font-size: 2.5rem;
+  line-height: 1.5em;
+  word-spacing: 0.5em;
+  letter-spacing: 0.1em;
+  font-family: "OpenSansCondensed-Bold", sans-serif;
+}
+.title {
+  font-size: 3rem;
+  line-height: 1.5em;
+  word-spacing: 0.5em;
+  letter-spacing: 0.1em;
+  font-family: "OpenSansCondensed-Bold", sans-serif;
+  color: var(--icon-hover-bg);
+  padding: 10px;
+}
+.heading {
+  font-size: 6rem;
+  line-height: 1.5em;
+  word-spacing: 0.5em;
+  letter-spacing: 0.1em;
+  font-family: "Patua One";
+}
+.ulmenu {
+  text-align: center;
+}
+.ulmenu {
+  font-weight: bold;
+}
+.sq
+{
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  position: relative;
+  animation-name: example;
+  animation-duration: 100s;
+  animation-iteration-count: 100;
+}
+
+@keyframes example {
+  0%   {background-color:red; left:0px; top:0px;}
+  2%  {background-color:yellow; left:200px; top:0px;}
+  4%  {background-color:blue; left:200px; top:200px;}
+  6%  {background-color:green; left:0px; top:200px;}
+  8% {background-color:red; left:0px; top:0px;}
+  10%   {background-color:red; left:0px; top:0px;}
+  12%  {background-color:yellow; left:200px; top:0px;}
+  14%  {background-color:blue; left:200px; top:200px;}
+  16%  {background-color:green; left:0px; top:200px;}
+  18% {background-color:red; left:0px; top:0px;}
+  20%   {background-color:red; left:0px; top:0px;}
+  22%  {background-color:yellow; left:200px; top:0px;}
+  24%  {background-color:blue; left:200px; top:200px;}
+  26%  {background-color:green; left:0px; top:200px;}
+  28% {background-color:red; left:0px; top:0px;}
+  30%   {background-color:red; left:0px; top:0px;}
+  32%  {background-color:yellow; left:200px; top:0px;}
+  34%  {background-color:blue; left:200px; top:200px;}
+  36%  {background-color:green; left:0px; top:200px;}
+  38% {background-color:red; left:0px; top:0px;}
+  40%   {background-color:red; left:0px; top:0px;}
+  42%  {background-color:yellow; left:200px; top:0px;}
+  44%  {background-color:blue; left:200px; top:200px;}
+  46%  {background-color:green; left:0px; top:200px;}
+  48% {background-color:red; left:0px; top:0px;}
+  50%   {background-color:red; left:0px; top:0px;}
+  52%  {background-color:yellow; left:200px; top:0px;}
+  54%  {background-color:blue; left:200px; top:200px;}
+  56%  {background-color:green; left:0px; top:200px;}
+  58% {background-color:red; left:0px; top:0px;}
+  60%   {background-color:red; left:0px; top:0px;}
+  62%  {background-color:yellow; left:200px; top:0px;}
+  64%  {background-color:blue; left:200px; top:200px;}
+  66%  {background-color:green; left:0px; top:200px;}
+  68% {background-color:red; left:0px; top:0px;}
+  70%   {background-color:red; left:0px; top:0px;}
+  72%  {background-color:yellow; left:200px; top:0px;}
+  74%  {background-color:blue; left:200px; top:200px;}
+  76%  {background-color:green; left:0px; top:200px;}
+  78% {background-color:red; left:0px; top:0px;}
+  80%   {background-color:red; left:0px; top:0px;}
+  82%  {background-color:yellow; left:200px; top:0px;}
+  84%  {background-color:blue; left:200px; top:200px;}
+  86%  {background-color:green; left:0px; top:200px;}
+  88% {background-color:red; left:0px; top:0px;}
+  90%   {background-color:red; left:0px; top:0px;}
+  92%  {background-color:yellow; left:200px; top:0px;}
+  94%  {background-color:blue; left:200px; top:200px;}
+  96%  {background-color:green; left:0px; top:200px;}
+  98% {background-color:red; left:0px; top:0px;}
+  100% {background-color:red; left:0px; top:0px;}
+
+}
+hr 
+{
+  position: relative;
+  border: none;
+  height: 12px;
+  background: black;
+  margin-bottom: 50px;
+}
+.h1
+{
+  background-color: #e8d1a5;
+}
+.sq1
+{
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  position: relative;
+  animation-name: example;
+  animation-duration: 100s;
+  animation-iteration-count: 100;
+  float: right;
+}
+.blink {
+  animation: blink 1s steps(1, end) infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.sqn1
+{
+  width: 100px;
+  height: 100px;
+  background-color: red;
+  position: relative;
+  visibility: hidden;
+}
+.div2
+{
+  visibility: hidden;
+}
+#stopwatch {
+    font-size: 100px;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+}
+.container1{
+    height: 100px;
+    width: 100%;
+}
+
+#display{
+    width: 100%;
+    font-size: 72px;
+    text-align: center;
+    margin: 0px auto;
+}
+.fruitClass
+{
+  position: relative;
+}
+.restartBtn
+{
+  visibility: hidden;
+}
+.ab
+{
+  visibility: hidden;
+}
